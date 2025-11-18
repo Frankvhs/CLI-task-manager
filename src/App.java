@@ -10,7 +10,8 @@ public class App {
                     System.out.println("Tarea agregada con éxito!");
                 }
                 break;
-            
+             
+                
             case "listTasks":
                 manager.listTasks();
                 break;
@@ -25,6 +26,15 @@ public class App {
             
             case "listDone":
                 manager.listDoneTasks();
+                break;
+            
+            case "changeStatus":
+                if (args.length >= 3) {
+                    manager.changeTaskStatus(args[1], args[2]);
+                } else {
+                    System.out.println("Uso: changeStatus <id> <estado>");
+                    System.out.println("Estados disponibles: ip (en progreso), dn (completada)");
+                }
                 break;
         
             default:

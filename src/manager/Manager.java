@@ -34,6 +34,17 @@ public class Manager {
         }
     }
 
+    public void changeTaskStatus(String id, String statusCommand){
+        for (Task task : tasks) {
+            if(task.getId().equals(id)){
+                task.changeStatus(statusCommand);
+                task.setUpdateAt(LocalDate.now());
+                return;
+            }
+        }
+        System.out.println("Tarea con ID " + id + " no encontrada.");
+    }
+
     public void listTasks() {
         if (tasks.isEmpty()) {
             System.out.println("No hay tareas disponibles.");
