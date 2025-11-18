@@ -2,12 +2,6 @@ package manager;
 
 import java.time.LocalDate;
 
-enum Status {
-    PENDING,
-    IN_PROGRESS,
-    DONE
-}
-
 public class Task {
     private String id;
     private String description;

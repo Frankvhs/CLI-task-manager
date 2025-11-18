@@ -50,4 +50,27 @@ public class Manager {
             System.out.println("-".repeat(40));
         }
     }
+
+    public void listPendingTasks() {
+        List<Task> pendingTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getStatus() == Status.PENDING) {
+                pendingTasks.add(task);
+            }
+        }
+        
+        if (pendingTasks.isEmpty()) {
+            System.out.println("No hay tareas pendientes.");
+            return;
+        }
+        
+        System.out.println("\n=== Tareas Pendientes ===");
+        for (Task task : pendingTasks) {
+            System.out.println("ID: " + task.getId());
+            System.out.println("Descripción: " + task.getDescription());
+            System.out.println("Creada: " + task.getCreatedAt());
+            System.out.println("Actualizada: " + task.getUpdateAt());
+            System.out.println("-".repeat(40));
+        }
+    }
 }
