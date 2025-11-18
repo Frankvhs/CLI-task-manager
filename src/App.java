@@ -14,6 +14,18 @@ public class App {
             case "listTasks":
                 manager.listTasks();
                 break;
+            
+            case "listPending":
+                manager.listPendingTasks();
+                break;
+            
+            case "listInProgress":
+                manager.listInProgressTasks();
+                break;
+            
+            case "listDone":
+                manager.listDoneTasks();
+                break;
         
             default:
                 System.out.println("Comando no reconocido: " + args[0]);

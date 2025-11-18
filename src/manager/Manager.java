@@ -73,4 +73,50 @@ public class Manager {
             System.out.println("-".repeat(40));
         }
     }
+
+    public void listInProgressTasks() {
+        List<Task> inProgressTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getStatus() == Status.IN_PROGRESS) {
+                inProgressTasks.add(task);
+            }
+        }
+        
+        if (inProgressTasks.isEmpty()) {
+            System.out.println("No hay tareas en progreso.");
+            return;
+        }
+        
+        System.out.println("\n=== Tareas En Progreso ===");
+        for (Task task : inProgressTasks) {
+            System.out.println("ID: " + task.getId());
+            System.out.println("Descripción: " + task.getDescription());
+            System.out.println("Creada: " + task.getCreatedAt());
+            System.out.println("Actualizada: " + task.getUpdateAt());
+            System.out.println("-".repeat(40));
+        }
+    }
+
+    public void listDoneTasks() {
+        List<Task> doneTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getStatus() == Status.DONE) {
+                doneTasks.add(task);
+            }
+        }
+        
+        if (doneTasks.isEmpty()) {
+            System.out.println("No hay tareas completadas.");
+            return;
+        }
+        
+        System.out.println("\n=== Tareas Completadas ===");
+        for (Task task : doneTasks) {
+            System.out.println("ID: " + task.getId());
+            System.out.println("Descripción: " + task.getDescription());
+            System.out.println("Creada: " + task.getCreatedAt());
+            System.out.println("Actualizada: " + task.getUpdateAt());
+            System.out.println("-".repeat(40));
+        }
+    }
 }
