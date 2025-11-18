@@ -9,13 +9,13 @@ enum Status {
 }
 
 public class Task {
-    private int id;
+    private String id;
     private String description;
     private Status status;
     private LocalDate createdAt;
     private LocalDate updateAt;
 
-    public Task(int id, String description){
+    public Task(String id, String description){
         this.id = id;
         setDescription(description);
         status = Status.PENDING;
@@ -23,17 +23,20 @@ public class Task {
         updateAt = LocalDate.now();
     }
     //--------------------------------------------------
-    public int getId() {
+    public String getId() {
         return id;
     }
-    public LocalDate getCreatedAat(){
+    public LocalDate getCreatedAt(){
         return createdAt;
+    }
+    public Status getStatus(){
+        return status;
     }
     //--------------------------------------------------
     public void setDescription(String description){
         this.description = description;
     }
-    public String getDesCription(){
+    public String getDescription(){
         return description;
     }
 
@@ -48,6 +51,7 @@ public class Task {
         switch (changeStatusComand) {
             case "ip":status = Status.IN_PROGRESS; break;
             case "dn":status = Status.DONE; break;
+            default: System.out.println("Invalid status command");
         }
     }
 }
